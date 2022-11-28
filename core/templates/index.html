@@ -1,0 +1,33 @@
+<style type="text/css">
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .imgDiv{
+        height: 300px;
+        width: 400px;
+    }
+    .imgDiv p{
+        font-size: 25px;
+        color: green;
+
+    }
+    .imgDiv img{
+        height: 100%;
+        width: 100%;
+    }
+</style>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="imageFile" /><br><br>
+    <div class="imgDiv">
+        
+        <img src={{path}}><br>
+        <p>{{name}}{%if percentage %}: {{percentage}}%{%endif%}</p>
+    </div>
+    <br><br><br>
+    
+    <input type="submit" name="submit" value="Upload" />
+</form>
